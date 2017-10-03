@@ -1,0 +1,21 @@
+<%= form_for @category, url: admin_categories_path, remote: true, html: { class: "form-inline" } do |f| %>
+  <% if @category.errors.any? %>
+  <div class="alert alert-danger alert-dismissable">
+    <button type="button" name="button" data-dismiss="dismiss" alert-hidden="true">&times;</button>
+    <strong>
+      <%= pluralize(@category.errors.count, "error") %> prohibited this page from being saved:
+    </strong>
+    <ul>
+      <% @category.erros.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+  <%= f.submit "Submit", name: "submit", class: "btn btn-primary"%>
+<% end %>
