@@ -2,6 +2,8 @@ class Category < ApplicationRecord
   extend FriendlyId
   friendly_id :name, use: [:slugged, :finders, :history]
 
+  has_many :products
+
   default_scope -> { order('categories.created_at DESC') }
 
   def should_generate_new_friendly_id?

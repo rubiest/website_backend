@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   attr_accessor :login
 
+  has_many :products
+
   validates :username,
     presence: true,
     uniqueness: {

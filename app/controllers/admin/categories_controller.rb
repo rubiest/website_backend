@@ -9,14 +9,14 @@ class Admin::CategoriesController < AdminController
   end
 
   def create
-    @category = Category.create!(category_params)
+    @category = Category.create! category_params
     respond_to do |format|
       format.js { redirect_to admin_categories_path, notice: "Category has been added" }
     end
   end
 
   def destroy
-    @category = Category.destroy(params[:id])
+    @category = Category.destroy params[:id]
     respond_to do |format|
       format.js { redirect_to admin_categories_path, notice: "Category has been destroyed" }
     end
