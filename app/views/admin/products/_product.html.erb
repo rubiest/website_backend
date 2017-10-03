@@ -6,8 +6,16 @@
   <td><%= number_to_currency(product.default_price, unit: "RM") %></td>
   <td><span class="badge badge-secondary"><%= product.quantity %></span> <%= check_stock(product) %></td>
   <td>
-    <%= link_to "edit", edit_admin_product_path(product), class: "btn btn-primary btn-sm" %>
-    <%= link_to "show", admin_product_path(product), class: "btn btn-info btn-sm" %>
-    <%= link_to "delete", admin_product_path(product), method: :delete, remote: true, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
+    <div class="btn-group btn-group-sm">
+      <%= link_to edit_admin_product_path(product), class: "btn btn-primary" do %>
+        <i class="fa fa-pencil" aria-hidden="true"></i>
+      <% end %>
+      <%= link_to admin_product_path(product), class: "btn btn-info" do %>
+        <i class="fa fa-window-restore" aria-hidden="true"></i>
+      <% end %>
+      <%= link_to admin_product_path(product), method: :delete, remote: true, data: { confirm: "Are you sure?" }, class: "btn btn-danger" do %>
+        <i class="fa fa-trash" aria-hidden="true"></i>
+      <% end %>
+    </div>
   </td>
 </tr>

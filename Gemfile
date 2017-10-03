@@ -36,6 +36,7 @@ gem 'devise'
 gem 'config'
 gem 'friendly_id', '~> 5.1.0'
 gem 'webpacker', '~> 3.0'
+gem 'font-awesome-sass'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
