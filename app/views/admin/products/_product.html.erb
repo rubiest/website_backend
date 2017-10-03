@@ -2,7 +2,7 @@
 <tr>
   <td><%= index+1 %></td>
   <td><%= product.name %></td>
-  <td><%= product.category.name %></td>
+  <td><%= product.category.name.titleize %></td>
   <td><%= number_to_currency(product.default_price, unit: "RM") %></td>
   <td><span class="badge badge-secondary"><%= product.quantity %></span> <%= check_stock(product) %></td>
   <td>
