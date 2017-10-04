@@ -45,7 +45,7 @@ class Admin::PropertiesController < AdminController
   private
 
   def property_params
-    params.require(:property).permit(:identifying_name, :display_name, :active)
+    params.require(:property).permit(:identifying_name, :display_name, :active, :category_id)
   end
 
   def find_property
