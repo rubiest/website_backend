@@ -16,6 +16,7 @@ class Product < ApplicationRecord
   validates_numericality_of :quantity
 
   accepts_nested_attributes_for :variant, reject_if: proc { |attributes| attributes['sku'].blank? }, allow_destroy: true
+  accepts_nested_attributes_for :product_properties, reject_if: proc { |attributes| attributes['description'].blank? }, allow_destroy: true
 
   def should_generate_new_friendly_id?
     name_changed?
