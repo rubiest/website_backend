@@ -37,6 +37,10 @@ gem 'config'
 gem 'friendly_id', '~> 5.1.0'
 gem 'webpacker', '~> 3.0'
 gem 'font-awesome-sass'
+gem 'carrierwave', '~> 1.0'
+gem 'mini_magick'
+gem 'fog-aws'
+gem 'fastimage'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
