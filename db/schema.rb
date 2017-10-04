@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171004052640) do
+ActiveRecord::Schema.define(version: 20171004081856) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,16 @@ ActiveRecord::Schema.define(version: 20171004052640) do
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
   end
 
+  create_table "product_properties", force: :cascade do |t|
+    t.bigint "product_id"
+    t.bigint "property_id"
+    t.string "description", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_product_properties_on_product_id"
+    t.index ["property_id"], name: "index_product_properties_on_property_id"
+  end
+
   create_table "products", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "category_id"
@@ -52,6 +62,14 @@ ActiveRecord::Schema.define(version: 20171004052640) do
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["slug"], name: "index_products_on_slug", unique: true
     t.index ["user_id"], name: "index_products_on_user_id"
+  end
+
+  create_table "properties", force: :cascade do |t|
+    t.string "identifying_name", null: false
+    t.string "display_name"
+    t.boolean "active", default: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -89,6 +107,8 @@ ActiveRecord::Schema.define(version: 20171004052640) do
     t.index ["sku"], name: "index_variants_on_sku", unique: true
   end
 
+  add_foreign_key "product_properties", "products"
+  add_foreign_key "product_properties", "properties"
   add_foreign_key "products", "categories"
   add_foreign_key "products", "users"
   add_foreign_key "variants", "products"

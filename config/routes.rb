@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     get "/" => "dashboards#index", as: 'admin'
     resources :categories, except: [:edit, :update]
     resources :products
+    resources :properties, except: :show
   end
   devise_for :users, controllers: {
     sessions: 'users/sessions',

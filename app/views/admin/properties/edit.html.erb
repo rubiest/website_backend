@@ -1,0 +1,3 @@
+<%= form_for @property, url: admin_property_path, multipart: true, html: { class: "form-horizontal form-bordered", method: :patch } do |f| %>
+  <%= render partial: 'form', locals: {f: f, post: @property} %>
+<% end %>

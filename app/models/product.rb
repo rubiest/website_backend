@@ -6,6 +6,8 @@ class Product < ApplicationRecord
   belongs_to :user
   belongs_to :category
   has_one :variant, dependent: :destroy
+  has_many :product_properties
+  has_many :properties,         through: :product_properties
 
   default_scope -> { order('products.created_at DESC') }
   before_save :set_in_stock

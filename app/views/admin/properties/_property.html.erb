@@ -1,0 +1,17 @@
+<% index = property_counter + 0 %>
+<tr>
+  <td><%= index+1 %></td>
+  <td><%= property.identifying_name %></td>
+  <td><%= property.display_name %></td>
+  <td><%= property.display_active %></td>
+  <td>
+    <div class="btn-group btn-group-sm">
+      <%= link_to edit_admin_property_path(property), class: "btn btn-primary" do %>
+        <i class="fa fa-pencil" aria-hidden="true"></i>
+      <% end %>
+      <%= link_to admin_property_path(property), class: "btn btn-info" do %>
+        <i class="fa fa-window-restore" aria-hidden="true"></i>
+      <% end %>
+    </div>
+  </td>
+</tr>

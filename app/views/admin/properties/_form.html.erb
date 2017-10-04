@@ -1,0 +1,32 @@
+<% if @property.errors.any? %>
+<div class="alert alert-danger alert-dismissable">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+  <strong><%= pluralize(@property.errors.count, "error") %> prohibited this user from being saved:</strong>
+  <ul>
+    <% @property.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<div class="form-group">
+  <%= f.label :identifying_name, class: "col-sm-2 control-label" %>
+  <div class="col-sm-10">
+    <%= f.text_field :identifying_name, class: "form-control", required: true %>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= f.label :display_name, class: "col-sm-2 control-label" %>
+  <div class="col-sm-10">
+    <%= f.text_field :display_name, class: "form-control", required: true %>
+  </div>
+</div>
+
+<div class="actions">
+  <div class="col-sm-offset-2 col-sm-10">
+    <%= f.submit "Submit", class: "btn btn-primary" %>
+    <%= link_to "Cancel", admin_properties_path, class: "btn btn-default" %>
+  </div>
+</div>
